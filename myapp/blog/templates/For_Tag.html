@@ -1,0 +1,6 @@
+{% if posts%}
+{% for post in posts%}
+<h1>{{post.tittle}}</h1>{% endfor %}
+{% else%}
+<P>No Data</p>
+{%endif%}

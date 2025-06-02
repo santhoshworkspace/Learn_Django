@@ -22,3 +22,11 @@ def detail(request):
 
 def base(request):
     return render(request,'base.html')
+
+def NewThings(request):
+    text = "Bye Nanba"
+    return render(request,'NewThings.html',{'text':text})
+
+def For_Tag(request):
+    text = [{'tittle':'Singam1'},{'tittle':'Singam2'}]
+    return render(request,'For_Tag.html',{'posts':text})
