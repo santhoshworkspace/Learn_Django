@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.urls import reverse
 # Create your views here.
 def index (request):
-    return render(request,'index.html')
+    text=[{'id':1},{'id':2}]
+    return render(request,'index.html',{'text':text})
 
 def new (request):
     return HttpResponse("centeral bank")
@@ -17,8 +18,8 @@ def new_url(request):
 def all(request):
     return HttpResponse("*")
 
-def detail(request):
-    return render(request,'detail.html')
+def detail(request,id):
+    return render(request,'detail.html',{'post_id':id})
 
 def base(request):
     return render(request,'base.html')
