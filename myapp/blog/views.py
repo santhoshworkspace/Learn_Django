@@ -1,9 +1,11 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
+from .models import POST
 # Create your views here.
 def index (request):
-    text=[{'id':1},{'id':2}]
+    #text=[{'id':1},{'id':2}]
+    text = POST.objects.all()
     return render(request,'index.html',{'text':text})
 
 def new (request):
@@ -19,8 +21,9 @@ def all(request):
     return HttpResponse("*")
 
 def detail(request,id):
-    return render(request,'detail.html',{'post_id':id})
-
+   # return render(request,'detail.html',{'post_id':id})
+    texts = get_object_or_404(POST,pk=id)
+    return render(request,'detail.html',{'texts':texts})
 def base(request):
     return render(request,'base.html')
 
